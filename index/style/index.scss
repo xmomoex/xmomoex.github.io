@@ -1,0 +1,386 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0%;
+  overflow-x: hidden;
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #1f2b6c;
+    min-height: 13.1vh;
+    align-items: center;
+
+    .logo {
+      color: #fcfefe;
+      font-size: 36px;
+      font-family: Yeseva One;
+      font-weight: bold;
+
+      #mas {
+        color: #159eec;
+        font-size: 40px;
+        font-family: Yeseva One;
+        font-weight: bold;
+      }
+    }
+
+    #menu {
+      display: flex;
+      justify-content: space-around;
+      width: 50%;
+      color: #fcfefe;
+      font-size: 22px;
+      font-family: Yeseva One;
+      font-weight: bold;
+      position: relative;
+
+      a {
+        position: relative;
+
+        /* Establece el contexto para el pseudo-elemento */
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -3px;
+
+          /* Ajusta la posición del subrayado */
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: #fcfefe;
+          transform: scaleX(0);
+
+          /* Inicialmente, el subrayado no está visible */
+          transition: transform 0.3s ease-in-out;
+
+          /* Transición del subrayado */
+        }
+
+        &:hover {
+          &::before {
+            transform: scaleX(1);
+
+            /* Muestra el subrayado al pasar el ratón */
+          }
+
+          transform: scale(1.3);
+          transition-duration: 0.3s;
+        }
+      }
+    }
+
+    .buscador {
+      font-size: 2em;
+      color: #fcfefe;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .sesion svg {
+      color: #fcfefe;
+      width: 40px;
+      height: 40px;
+    }
+
+    .buscadorbox {
+      position: absolute;
+      right: 0;
+      top: -100%;
+      width: 100%;
+      min-height: 13.1vh;
+      display: flex;
+      background: #1f2b6c;
+      align-items: center;
+      transition: top 0.7s ease;
+      padding: 30px;
+
+      &.active {
+        top: 0;
+      }
+
+      input {
+        width: 100%;
+        border: none;
+        outline: none;
+        min-height: 5vh;
+        color: #fcfefe;
+        font-size: 1.25em;
+        background: #1f2b6c;
+        border-bottom: 1px solid #fcfefe;
+      }
+    }
+
+    .buscador {
+      .searchBtn {
+        position: relative;
+        left: 30px;
+        top: 2.5px;
+        transition: 0.5s ease-in-out;
+
+        &.active {
+          left: 0;
+        }
+      }
+
+      .closeBtn {
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.5s;
+        scale: 0;
+
+        &.active {
+          opacity: 1;
+          visibility: visible;
+          transition: 0.5s;
+          scale: 1;
+        }
+      }
+    }
+  }
+}
+
+.responsive {
+  display: none;
+}
+
+nav {
+  .btn button {
+    margin-left: 20px;
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+  }
+
+  .responsive button {
+    margin-left: 20px;
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      background-color: #e2f1f8;
+      color: #ffbc0e;
+      transform: scale(1.1);
+    }
+  }
+
+  .menu button:hover {
+    background-color: #e2f1f8;
+    color: #ffbc0e;
+    transform: scale(1.1);
+  }
+}
+
+a:-webkit-any-link {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+@media screen and (max-width: 800px) {
+  .ayuda,
+  .sesion,
+  .menu a,
+  .buscador {
+    display: none;
+  }
+
+  .responsive {
+    display: inherit;
+  }
+}
+
+/*responsive*/
+
+nav {
+  a {
+    text-decoration: none;
+  }
+
+  .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: #1f2b6c;
+    overflow: hidden;
+    transition: all 0.3s ease 0s;
+
+    .overlay-content {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fcfefe;
+
+      a {
+        :hover {
+          transform: scale(1.1);
+        }
+
+        padding: 15px;
+        font-size: 36px;
+        display: block;
+        transition: all 0.3s ease 0s;
+        font-weight: 700;
+        -webkit-text-decoration: #eceff1;
+        text-decoration: #eceff1;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 45px;
+      font-size: 65px;
+    }
+  }
+}
+
+@media screen and (max-height: 450px) {
+  nav .overlay {
+    a {
+      font-size: 20px;
+    }
+
+    .close {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
+
+/*
+    SECTION
+    */
+
+section {
+  padding: 2rem 9%;
+}
+
+.boton {
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  background: var(--Accent, #bfd2f8);
+  color: var(--Primary, #1f2b6c) !important;
+  padding: 0.9rem 3.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: -1;
+  overflow: hidden;
+  border: 2px solid #bfd2f8;
+  margin-right: 20px;
+  font-weight: bold;
+
+  &:hover {
+    color: var(--Primary, #bfd2f8) !important;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #1f2b6c;
+    z-index: -1;
+    transition: 0.5s;
+    display: inline-block;
+    border-radius: 5rem;
+    cursor: pointer;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+}
+
+.boton2 {
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  background: #1f2b6c;
+  color: var(--Accent, #bfd2f8) !important;
+  padding: 0.9rem 3.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: -1;
+  overflow: hidden;
+  border: 2px solid #1f2b6c;
+  font-weight: bold;
+
+  &:hover {
+    color: #1f2b6c !important;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--Accent, #bfd2f8);
+    z-index: -1;
+    transition: 0.5s;
+    display: inline-block;
+    border-radius: 5rem;
+    cursor: pointer;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  min-height: 86.9vh;
+  background: url(../../img/fotoiniciall.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .content {
+    max-width: 50rem;
+
+    h3 {
+      font-size: 4rem;
+      color: var(--Primary, #1f2b6c);
+      font-family: Yeseva One;
+      font-weight: bold;
+    }
+
+    span {
+      font-size: 2.5rem;
+      color: var(--Secondary, #159eec);
+      font-family: Yeseva One;
+      padding: 1rem 0;
+      line-height: 1.5;
+      font-weight: bold;
+    }
+  }
+}
