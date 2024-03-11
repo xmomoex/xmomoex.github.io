@@ -1,0 +1,377 @@
+@charset "UTF-8";
+body {
+  margin: 0px;
+}
+body nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #1f2b6c;
+  min-height: 13.1vh;
+  align-items: center;
+}
+body nav .logo {
+  color: #fcfefe;
+  font-size: 36px;
+  font-family: Yeseva One;
+  font-weight: bold;
+}
+body nav .logo #mas {
+  color: #159eec;
+  font-size: 40px;
+  font-family: Yeseva One;
+  font-weight: bold;
+}
+body nav #menu {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  color: #fcfefe;
+  font-size: 22px;
+  font-family: Yeseva One;
+  font-weight: bold;
+  position: relative;
+}
+body nav #menu a {
+  position: relative;
+  /* Establece el contexto para el pseudo-elemento */
+}
+body nav #menu a::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  /* Ajusta la posición del subrayado */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fcfefe;
+  transform: scaleX(0);
+  /* Inicialmente, el subrayado no está visible */
+  transition: transform 0.3s ease-in-out;
+  /* Transición del subrayado */
+}
+body nav #menu a:hover {
+  transform: scale(1.3);
+  transition-duration: 0.3s;
+}
+body nav #menu a:hover::before {
+  transform: scaleX(1);
+  /* Muestra el subrayado al pasar el ratón */
+}
+body nav .buscador {
+  font-size: 2em;
+  color: #fcfefe;
+  z-index: 10;
+  cursor: pointer;
+}
+body nav .sesion svg {
+  color: #fcfefe;
+  width: 40px;
+  height: 40px;
+}
+body nav .buscadorbox {
+  position: absolute;
+  right: 0;
+  top: -100%;
+  width: 100%;
+  min-height: 13.1vh;
+  display: flex;
+  background: #1f2b6c;
+  align-items: center;
+  transition: top 0.7s ease;
+  padding: 30px;
+}
+body nav .buscadorbox.active {
+  top: 0;
+}
+body nav .buscadorbox input {
+  width: 100%;
+  border: none;
+  outline: none;
+  min-height: 5vh;
+  color: #fcfefe;
+  font-size: 1.25em;
+  background: #1f2b6c;
+  border-bottom: 1px solid #fcfefe;
+}
+body nav .buscador .searchBtn {
+  position: relative;
+  left: 30px;
+  top: 2.5px;
+  transition: 0.5s ease-in-out;
+}
+body nav .buscador .searchBtn.active {
+  left: 0;
+}
+body nav .buscador .closeBtn {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  scale: 0;
+}
+body nav .buscador .closeBtn.active {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s;
+  scale: 1;
+}
+
+.responsive {
+  display: none;
+}
+
+nav .btn button {
+  margin-left: 20px;
+  font-weight: 700;
+  color: #1b3039;
+  padding: 9px 25px;
+  background: #eceff1;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+nav .responsive button {
+  margin-left: 20px;
+  font-weight: 700;
+  color: #1b3039;
+  padding: 9px 25px;
+  background: #eceff1;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+nav .responsive button:hover {
+  background-color: #e2f1f8;
+  color: #ffbc0e;
+  transform: scale(1.1);
+}
+nav .menu button:hover {
+  background-color: #e2f1f8;
+  color: #ffbc0e;
+  transform: scale(1.1);
+}
+
+a:-webkit-any-link {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+@media screen and (max-width: 800px) {
+  .ayuda,
+  .sesion,
+  .menu a,
+  .buscador {
+    display: none;
+  }
+  .responsive {
+    display: inherit;
+  }
+}
+/*responsive*/
+nav a {
+  text-decoration: none;
+}
+nav .overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: #1f2b6c;
+  overflow: hidden;
+  transition: all 0.3s ease 0s;
+}
+nav .overlay .overlay-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fcfefe;
+}
+nav .overlay .overlay-content a {
+  padding: 15px;
+  font-size: 36px;
+  display: block;
+  transition: all 0.3s ease 0s;
+  font-weight: 700;
+  -webkit-text-decoration: #eceff1;
+  text-decoration: #eceff1;
+}
+nav .overlay .overlay-content a :hover {
+  transform: scale(1.1);
+}
+nav .overlay .close {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 65px;
+}
+
+@media screen and (max-height: 450px) {
+  nav .overlay a {
+    font-size: 20px;
+  }
+  nav .overlay .close {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+.superior {
+  width: 100%;
+  height: 250px;
+  flex-shrink: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.4509803922), #fffefe), url(../../img/subcabecera1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 15% auto;
+}
+.superior span {
+  color: var(--Primary, #1f2b6c);
+  /* Display 1 */
+  font-family: Yeseva One;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-self: center;
+  grid-column: 2/3;
+  font-weight: bold;
+}
+
+.separador {
+  display: flex;
+}
+.separador .uno {
+  width: 20%;
+  height: 8px;
+  flex-shrink: 0;
+  background: var(--Accent, #bfd2f8);
+}
+.separador .dos {
+  width: 60%;
+  height: 8px;
+  flex-shrink: 0;
+  background: var(--Primary, #1f2b6c);
+}
+.separador .tres {
+  width: 20%;
+  height: 8px;
+  flex-shrink: 0;
+  background: var(--Secondary, #159eec);
+}
+
+.crearconsulta {
+  padding: 5%;
+  padding-bottom: 13%;
+  height: 100vh;
+  width: 100%;
+}
+
+.letrasCC {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#subtitulo {
+  color: var(--Primary, #1f2b6c);
+  text-align: center;
+  font-weight: bold;
+  font-family: Yeseva One;
+  font-size: 32px;
+  font-style: normal;
+  line-height: normal;
+  margin-bottom: 1%;
+}
+
+#texto {
+  color: var(--Black, #212124);
+  font-family: Work Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  align-self: center;
+  margin-bottom: 5%;
+}
+
+.formConsulta {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 50% auto;
+  grid-template-rows: 15% 15% 15% 15% auto 15%;
+  grid-column: 1/2;
+}
+.formConsulta input,
+.formConsulta select,
+.formConsulta textarea {
+  background: var(--Primary, #1f2b6c);
+  color: var(--white, #fcfefe);
+  font-family: Work Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 140%;
+}
+.formConsulta input::-moz-placeholder, .formConsulta textarea::-moz-placeholder {
+  color: var(--white, #fcfefe);
+  font-family: Work Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 140%;
+}
+.formConsulta input::placeholder,
+.formConsulta textarea::placeholder {
+  color: var(--white, #fcfefe);
+  font-family: Work Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 140%;
+}
+.formConsulta #mensaje {
+  grid-column: 1/3;
+}
+.formConsulta #boton {
+  justify-self: center;
+  grid-column: 1/3;
+  width: 100%;
+  height: 70px;
+  background: var(--Accent, #bfd2f8);
+  color: var(--Primary, #1f2b6c);
+  text-align: center;
+  align-self: center;
+  font-family: Work Sans;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 140%;
+  border: 0px;
+  padding-top: 1%;
+}
+
+@media only screen and (max-width: 840px) {
+  .sup,
+  .inf {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .sup .telfyHor,
+  .inf {
+    flex-wrap: wrap;
+  }
+  .opciones,
+  .ayuda :no-button {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+}/*# sourceMappingURL=crearconsulta.css.map */
